@@ -20,11 +20,11 @@ def Median(Mylist):
     
 def reportProp( res_file ):
     res_df = pd.read_csv(res_file) 
-    fields2explore = ['CWE_617_COUNT', 'CWE_733_COUNT', 'CWE_78_COUNT',\
-	'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_798_COUNT', 'CWE_259_COUNT', 'CWE_377_COUNT', 'CWE_755_COUNT',\
-	'CWE_489_COUNT', 'CWE_676_COUNT', 'CWE_326_COUNT', 'CWE_242_COUNT', 'CWE_601_COUNT', 'CWE_338_COUNT',\
-	'CWE_91_COUNT', 'CWE_295_COUNT', 'CWE_77_COUNT', 'CWE_79_COUNT',\
-	'TOTAL_EVENT_COUNT']
+    fields2explore = ['CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
+        'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
+        'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
+        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
                      
     for field in fields2explore:
         field_res_list = res_df[res_df['CATEGORY'] == field ]   
@@ -40,11 +40,11 @@ def reportProp( res_file ):
     
 def reportDensity( res_file ):
     res_df = pd.read_csv(res_file) 
-    fields2explore = ['CWE_617_COUNT', 'CWE_733_COUNT', 'CWE_78_COUNT',\
-	'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_798_COUNT', 'CWE_259_COUNT', 'CWE_377_COUNT', 'CWE_755_COUNT',\
-	'CWE_489_COUNT', 'CWE_676_COUNT', 'CWE_326_COUNT', 'CWE_242_COUNT', 'CWE_601_COUNT', 'CWE_338_COUNT',\
-	'CWE_91_COUNT', 'CWE_295_COUNT', 'CWE_77_COUNT', 'CWE_79_COUNT',\
-	'TOTAL_EVENT_COUNT']
+    fields2explore = ['CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
+        'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
+        'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
+        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
                      
     for field in fields2explore:
         field_res_list = res_df[res_df['CATEGORY'] == field ]   
