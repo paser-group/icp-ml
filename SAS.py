@@ -1,8 +1,7 @@
 import os
 import re
-import json
 import subprocess
-import re
+import numpy as np
 
 def runBandit(python_file_list):
     for PYTHON_SCRIPT in python_file_list:
@@ -23,7 +22,7 @@ def runBandit(python_file_list):
             print("Found Issue")
             with open("bandit_output") as f:
                 #with open("modelzoo_output", "a") as outfile:
-                with open("gitlab_output", "a") as outfile:
+                with open("modelzoo_output", "a") as outfile:
                     outfile.write(PYTHON_SCRIPT)
                     for line in f:
                         outfile.write(line) 
@@ -32,8 +31,9 @@ def runBandit(python_file_list):
 
                         
 if __name__=='__main__':
-    #path2dir = 'supervised_repos/MODELZOO'
-    path2dir = 'supervised_repos/GITLAB_REPOS'
+    path2dir = 'supervised_repos/MODELZOO'
+    #path2dir = 'supervised_repos/GITLAB_REPOS'
+    #path2dir = 'Comparison/NON_ML_REPOS'
     python_file_list = []
     list_subfolders_with_paths = [f.path for f in os.scandir(path2dir) if f.is_dir()]
     for subfolder in list_subfolders_with_paths: 
@@ -45,6 +45,8 @@ if __name__=='__main__':
                 if(os.path.exists(full_path_file)):
                     if (file_.endswith('py')) :
                         python_file_list.append(full_path_file) 
-        runBandit(python_file_list)
+    
+    python_file_list = np.unique(  python_file_list )
+    runBandit(python_file_list)
 
 
