@@ -15,7 +15,11 @@ def getAllSLOC(df_param, csv_encoding='latin-1' ):
     total_sloc = 0
     all_files = np.unique( df_param['FILE_FULL_PATH'].tolist() ) 
     for file_ in all_files:
-        total_sloc = total_sloc + sum(1 for line in open(file_, encoding=csv_encoding))
+        try:
+            total_sloc = total_sloc + sum(1 for line in open(file_, encoding=csv_encoding))
+        except OSError as e:
+            print('%'*1000)
+            print(file_)
     return total_sloc
 
 def reportProportion( res_file, output_file ):
@@ -25,8 +29,8 @@ def reportProportion( res_file, output_file ):
     fields2explore = ['CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
         'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
         'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
-        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
-        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_676_COUNT', \
+        'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
 	
 	
     
@@ -58,8 +62,8 @@ def reportEventDensity(res_file, output_file):
     fields2explore =  ['CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
         'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
         'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
-        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
-        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_676_COUNT', \
+        'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
   
     df_list = [] 
     
@@ -92,27 +96,21 @@ if __name__=='__main__':
     print('*'*100 )
 
 
-#     RESULTS_FILE = 'SUPERVISED_OUTPUT_GITHUB.csv'
-#     PROPORTION_FILE = 'PROPORTION_SUPERVISED_GITHUB.csv'   
-#     DENSITY_FILE = 'DENSITY_SUPERVISED_GITHUB.csv' 
-#     
-#     reportProportion( RESULTS_FILE, PROPORTION_FILE )
-#     print('*'*100) 
-#     reportEventDensity( RESULTS_FILE, DENSITY_FILE )
-#     print('*'*100) 
-#     
-#     RESULTS_FILE = 'SUPERVISED_OUTPUT_GITLAB.csv'
-#     PROPORTION_FILE = 'PROPORTION_SUPERVISED_GITLAB.csv'   
-#     DENSITY_FILE = 'DENSITY_SUPERVISED_GITLAB.csv' 
-#     
-#     reportProportion( RESULTS_FILE, PROPORTION_FILE )
-#     print('*'*100) 
-#     reportEventDensity( RESULTS_FILE, DENSITY_FILE )
-#     print('*'*100) 
+    RESULTS_FILE = 'output/SUPERVISED_OUTPUT_GITHUB.csv'
+    PROPORTION_FILE = 'output/PROPORTION_SUPERVISED_GITHUB.csv'   
+    DENSITY_FILE = 'output/DENSITY_SUPERVISED_GITHUB.csv' 
+
+#     RESULTS_FILE = 'output/SUPERVISED_OUTPUT_GITLAB.csv'
+#     PROPORTION_FILE = 'output/PROPORTION_SUPERVISED_GITLAB.csv'   
+#     DENSITY_FILE = 'output/DENSITY_SUPERVISED_GITLAB.csv' 
     
-    RESULTS_FILE = 'output/SUPERVISED_OUTPUT_MODELZOO.csv'
-    PROPORTION_FILE = 'output/PROPORTION_SUPERVISED_MODELZOO.csv'   
-    DENSITY_FILE = 'output/DENSITY_SUPERVISED_MODELZOO.csv' 
+#     RESULTS_FILE = 'output/SUPERVISED_OUTPUT_MODELZOO.csv'
+#     PROPORTION_FILE = 'output/PROPORTION_SUPERVISED_MODELZOO.csv'   
+#     DENSITY_FILE = 'output/DENSITY_SUPERVISED_MODELZOO.csv' 
+
+#     RESULTS_FILE = 'output/NON_ML_OUTPUT.csv'
+#     PROPORTION_FILE = 'output/PROPORTION_NON_ML.csv'   
+#     DENSITY_FILE = 'output/DENSITY_NON_ML.csv' 
     
     reportProportion( RESULTS_FILE, PROPORTION_FILE )
     print('*'*100) 

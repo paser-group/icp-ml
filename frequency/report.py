@@ -23,8 +23,8 @@ def reportProp( res_file ):
     fields2explore = ['CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
         'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
         'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
-        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
-        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_676_COUNT', \
+        'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
                      
     for field in fields2explore:
         field_res_list = res_df[res_df['CATEGORY'] == field ]   
@@ -43,8 +43,8 @@ def reportDensity( res_file ):
     fields2explore = ['CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
         'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
         'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
-        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
-        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_676_COUNT', \
+        'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
                      
     for field in fields2explore:
         field_res_list = res_df[res_df['CATEGORY'] == field ]   
@@ -67,42 +67,53 @@ if __name__=='__main__':
     print('Started at:', giveTimeStamp() )
     print('*'*100 )
     
-  #   print('*'*300) 
-#     print("Supervised GITHUB Proportion")
-#     RESULTS_FILE = 'PROPORTION_SUPERVISED_GITHUB.csv'
-#     reportProp( RESULTS_FILE )
-#     print('*'*50) 
-#     
-#     print('*'*50) 
-#     print("Supervised GITHUB Density")
-#     RESULTS_FILE = 'DENSITY_SUPERVISED_GITHUB.csv' 
-#     reportDensity( RESULTS_FILE )
-#     print('*'*100) 
-#     
+    print('*'*300) 
+    print("Supervised GITHUB Proportion")
+    RESULTS_FILE = 'output/PROPORTION_SUPERVISED_GITHUB.csv'
+    reportProp( RESULTS_FILE )
+    print('*'*50) 
+    
+    print('*'*50) 
+    print("Supervised GITHUB Density")
+    RESULTS_FILE = 'output/DENSITY_SUPERVISED_GITHUB.csv' 
+    reportDensity( RESULTS_FILE )
+    print('*'*100) 
+ 
 #     print('*'*100) 
 #     print("Supervised GITLAB Proportion")
-#     RESULTS_FILE = 'PROPORTION_SUPERVISED_GITLAB.csv'
+#     RESULTS_FILE = 'output/PROPORTION_SUPERVISED_GITLAB.csv'
 #     reportProp( RESULTS_FILE )
 #     print('*'*50) 
 #     
 #     print('*'*50) 
 #     print("Supervised GITLAB Density")
-#     RESULTS_FILE = 'DENSITY_SUPERVISED_GITLAB.csv' 
+#     RESULTS_FILE = 'output/DENSITY_SUPERVISED_GITLAB.csv' 
 #     reportDensity( RESULTS_FILE )
 #     print('*'*100) 
     
-    print('*'*100) 
-    print("Supervised MODELZOO Proportion")
-    RESULTS_FILE = 'output/PROPORTION_SUPERVISED_MODELZOO.csv'
-    reportProp( RESULTS_FILE )
-    print('*'*50) 
-    
-    print('*'*50) 
-    print("Supervised MODELZOO Density")
-    RESULTS_FILE = 'output/DENSITY_SUPERVISED_MODELZOO.csv' 
-    reportDensity( RESULTS_FILE )
-    print('*'*300) 
+#     print('*'*100) 
+#     print("Supervised MODELZOO Proportion")
+#     RESULTS_FILE = 'output/PROPORTION_SUPERVISED_MODELZOO.csv'
+#     reportProp( RESULTS_FILE )
+#     print('*'*50) 
+#     
+#     print('*'*50) 
+#     print("Supervised MODELZOO Density")
+#     RESULTS_FILE = 'output/DENSITY_SUPERVISED_MODELZOO.csv' 
+#     reportDensity( RESULTS_FILE )
+#     print('*'*300) 
 
+#     print('*'*100) 
+#     print("Non ML Proportion")
+#     RESULTS_FILE = 'output/PROPORTION_NON_ML.csv'
+#     reportProp( RESULTS_FILE )
+#     print('*'*50) 
+#     
+#     print('*'*50) 
+#     print("Non ML Density")
+#     RESULTS_FILE = 'output/DENSITY_NON_ML.csv' 
+#     reportDensity( RESULTS_FILE )
+#     print('*'*100) 
 
     print('*'*100 )
     print('Ended at:', giveTimeStamp() )

@@ -15,27 +15,26 @@ def giveTimeStamp():
 def getCSVData(file_list, bandit_output):
     temp_list = []
     for PYTHON_SCRIPT in file_list:
-    
         CWE_61_COUNT, CWE_77_COUNT, CWE_78_COUNT, CWE_79_COUNT, CWE_89_COUNT, CWE_91_COUNT, \
         CWE_220_COUNT, CWE_242_COUNT, CWE_259_COUNT, CWE_269_COUNT, CWE_285_COUNT, CWE_295_COUNT, \
         CWE_319_COUNT, CWE_326_COUNT, CWE_338_COUNT, CWE_377_COUNT, CWE_477_COUNT, CWE_489_COUNT, \
-        CWE_601_COUNT, CWE_617_COUNT, CWE_676_COUNT, CWE_733_COUNT, CWE_755_COUNT, CWE_798_COUNT\
+        CWE_601_COUNT, CWE_676_COUNT, CWE_755_COUNT, CWE_798_COUNT\
 	    = issue_engine.getAllIssueCount(bandit_output, PYTHON_SCRIPT)
 	
         total_event_count = CWE_61_COUNT + CWE_77_COUNT + CWE_78_COUNT + CWE_79_COUNT + CWE_89_COUNT + CWE_91_COUNT + \
         CWE_220_COUNT + CWE_242_COUNT + CWE_259_COUNT + CWE_269_COUNT + CWE_285_COUNT + CWE_295_COUNT + \
         CWE_319_COUNT + CWE_326_COUNT + CWE_338_COUNT + CWE_377_COUNT + CWE_477_COUNT + CWE_489_COUNT + \
-        CWE_601_COUNT + CWE_617_COUNT + CWE_676_COUNT + CWE_733_COUNT + CWE_755_COUNT + CWE_798_COUNT
+        CWE_601_COUNT + CWE_676_COUNT + CWE_755_COUNT + CWE_798_COUNT
 
         if 'MODELZOO' in PYTHON_SCRIPT:
-            dir_repo = PYTHON_SCRIPT.split('/')[0] + PYTHON_SCRIPT.split('/')[1] + PYTHON_SCRIPT.split('/')[2] + PYTHON_SCRIPT.split('/')[3]
+            dir_repo = PYTHON_SCRIPT.split('/')[0] + "/" + PYTHON_SCRIPT.split('/')[1] + "/" + PYTHON_SCRIPT.split('/')[2] + "/" + PYTHON_SCRIPT.split('/')[3]
         else:
-            dir_repo = PYTHON_SCRIPT.split('/')[0] + PYTHON_SCRIPT.split('/')[1] + PYTHON_SCRIPT.split('/')[2]
+            dir_repo = PYTHON_SCRIPT.split('/')[0] + "/" + PYTHON_SCRIPT.split('/')[1] + "/" + PYTHON_SCRIPT.split('/')[2]
 		
         the_tup = ( dir_repo, PYTHON_SCRIPT, CWE_61_COUNT, CWE_77_COUNT, CWE_78_COUNT, CWE_79_COUNT, CWE_89_COUNT, CWE_91_COUNT, \
         CWE_220_COUNT, CWE_242_COUNT, CWE_259_COUNT, CWE_269_COUNT, CWE_285_COUNT, CWE_295_COUNT, \
         CWE_319_COUNT, CWE_326_COUNT, CWE_338_COUNT, CWE_377_COUNT, CWE_477_COUNT, CWE_489_COUNT, \
-        CWE_601_COUNT, CWE_617_COUNT, CWE_676_COUNT, CWE_733_COUNT, CWE_755_COUNT, CWE_798_COUNT, total_event_count )
+        CWE_601_COUNT, CWE_676_COUNT, CWE_755_COUNT, CWE_798_COUNT, total_event_count )
 
         temp_list.append( the_tup )
     return temp_list  
@@ -48,19 +47,19 @@ def getNoIssueCSVData(file_list):
         CWE_61_COUNT = CWE_77_COUNT = CWE_78_COUNT = CWE_79_COUNT = CWE_89_COUNT = CWE_91_COUNT = \
         CWE_220_COUNT = CWE_242_COUNT = CWE_259_COUNT = CWE_269_COUNT = CWE_285_COUNT = CWE_295_COUNT = \
         CWE_319_COUNT = CWE_326_COUNT = CWE_338_COUNT = CWE_377_COUNT = CWE_477_COUNT = CWE_489_COUNT = \
-        CWE_601_COUNT = CWE_617_COUNT = CWE_676_COUNT = CWE_733_COUNT = CWE_755_COUNT = CWE_798_COUNT = 0
+        CWE_601_COUNT = CWE_676_COUNT = CWE_755_COUNT = CWE_798_COUNT = 0
 	
         total_event_count = 0
 
         if 'MODELZOO' in PYTHON_SCRIPT:
-            dir_repo = PYTHON_SCRIPT.split('/')[0] + PYTHON_SCRIPT.split('/')[1] + PYTHON_SCRIPT.split('/')[2] + PYTHON_SCRIPT.split('/')[3]
+            dir_repo = PYTHON_SCRIPT.split('/')[0] + "/" + PYTHON_SCRIPT.split('/')[1] + "/" + PYTHON_SCRIPT.split('/')[2] + "/" + PYTHON_SCRIPT.split('/')[3]
         else:
-            dir_repo = PYTHON_SCRIPT.split('/')[0] + PYTHON_SCRIPT.split('/')[1] + PYTHON_SCRIPT.split('/')[2]
+            dir_repo = PYTHON_SCRIPT.split('/')[0] + "/" + PYTHON_SCRIPT.split('/')[1] + "/" + PYTHON_SCRIPT.split('/')[2]
 		
         the_tup = ( dir_repo, PYTHON_SCRIPT, CWE_61_COUNT, CWE_77_COUNT, CWE_78_COUNT, CWE_79_COUNT, CWE_89_COUNT, CWE_91_COUNT, \
         CWE_220_COUNT, CWE_242_COUNT, CWE_259_COUNT, CWE_269_COUNT, CWE_285_COUNT, CWE_295_COUNT, \
         CWE_319_COUNT, CWE_326_COUNT, CWE_338_COUNT, CWE_377_COUNT, CWE_477_COUNT, CWE_489_COUNT, \
-        CWE_601_COUNT, CWE_617_COUNT, CWE_676_COUNT, CWE_733_COUNT, CWE_755_COUNT, CWE_798_COUNT, total_event_count )
+        CWE_601_COUNT, CWE_676_COUNT, CWE_755_COUNT, CWE_798_COUNT, total_event_count )
 
         temp_list.append( the_tup )
     return temp_list 
@@ -105,8 +104,8 @@ def issueCount(path2dir, csv_fil, bandit_output):
     CSV_HEADER = ['REPO_FULL_PATH','FILE_FULL_PATH', 'CWE_61_COUNT', 'CWE_77_COUNT', 'CWE_78_COUNT', \
         'CWE_79_COUNT', 'CWE_89_COUNT', 'CWE_91_COUNT', 'CWE_220_COUNT', 'CWE_242_COUNT', 'CWE_259_COUNT', \
         'CWE_269_COUNT', 'CWE_285_COUNT', 'CWE_295_COUNT', 'CWE_319_COUNT', 'CWE_326_COUNT', 'CWE_338_COUNT', \
-        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_617_COUNT', 'CWE_676_COUNT', \
-        'CWE_733_COUNT', 'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
+        'CWE_377_COUNT', 'CWE_477_COUNT', 'CWE_489_COUNT', 'CWE_601_COUNT', 'CWE_676_COUNT', \
+        'CWE_755_COUNT', 'CWE_798_COUNT', 'TOTAL_EVENT_COUNT']
     full_df.to_csv(csv_fil, header= CSV_HEADER, index=False, encoding= 'utf-8')     
 
 if __name__=='__main__':
@@ -125,18 +124,25 @@ if __name__=='__main__':
 			output_csv = output_file + '.csv'
 			full_dict  = issueCount(repo_dir, output_csv)
 	else: 
-		# repo_dir   = 'supervised/GITHUB_REPOS/'
-# 		output_csv = 'output/SUPERVISED_OUTPUT_GITHUB.csv'
-# 		full_dict  = issueCount(repo_dir, output_csv)
+		repo_dir   = 'supervised_repos/GITHUB_REPOS/'
+		output_csv = 'output/SUPERVISED_OUTPUT_GITHUB.csv'
+		bandit_output = 'github_output'
+		full_dict  = issueCount(repo_dir, output_csv,  bandit_output)
 # 		
-# 		repo_dir   = 'supervised/GITLAB_REPOS/'
+# 		repo_dir   = 'supervised_repos/GITLAB_REPOS/'
 # 		output_csv = 'output/SUPERVISED_OUTPUT_GITLAB.csv'
-# 		full_dict  = issueCount(repo_dir, output_csv)
+# 		bandit_output = 'gitlab_output'
+# 		full_dict  = issueCount(repo_dir, output_csv,  bandit_output)
 # 		
-		repo_dir   = 'supervised_repos/MODELZOO/'
-		output_csv = 'output/SUPERVISED_OUTPUT_MODELZOO.csv'
-		bandit_output = 'modelzoo_output'
-		issueCount(repo_dir, output_csv, bandit_output)
+# 		repo_dir   = 'supervised_repos/MODELZOO/'
+# 		output_csv = 'output/SUPERVISED_OUTPUT_MODELZOO.csv'
+# 		bandit_output = 'modelzoo_output'
+# 		issueCount(repo_dir, output_csv, bandit_output)
+# 
+# 		repo_dir   = 'Comparison/NON_ML_REPOS/'
+# 		output_csv = 'output/NON_ML_OUTPUT.csv'
+# 		bandit_output = 'non_ml_output'
+# 		full_dict  = issueCount(repo_dir, output_csv,  bandit_output)
 
 
 	print('*'*100 )
