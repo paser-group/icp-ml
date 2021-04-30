@@ -2,7 +2,7 @@ import numpy as np
 
 if __name__=='__main__':
 
-    with open('gitlab_partial_output') as f:
+    with open('github_output') as f:
         datafile = f.readlines()
         
     issue_list = []
